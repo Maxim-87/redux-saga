@@ -1,12 +1,12 @@
 import * as actionType from '../constats/index'
 
-export const increaseCount = () => ({
-  type: actionType.INCREASE_COUNT,
-})
+// export const increaseCount = () => ({
+//   type: actionType.INCREASE_COUNT,
+// })
 
-export const decreaseCount = () => ({
-  type: actionType.DECREASE_COUNT,
-})
+// export const decreaseCount = () => ({
+//   type: actionType.DECREASE_COUNT,
+// })
 
 export const getLatestNews = () => ({
   type: actionType.GET_LATEST_NEWS,
