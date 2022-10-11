@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {getLatestNews} from "../../redux/actions/actionCreator";
 import News from "../../components/news/News";
 import {getPopularNews} from "../../redux/actions/actionCreator";
 
