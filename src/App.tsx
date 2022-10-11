@@ -1,5 +1,5 @@
-import {useDispatch, useSelector} from "react-redux";
-import News from "./components/news/News";
+import {useSelector} from "react-redux";
+// import News from "./components/news/News";
 import Footer from "./components/footer";
 import Header from "./components/header";
 
@@ -9,11 +9,11 @@ type AppType = {
 }
 
 const App = ({children}: AppType) => {
-  const dispatch = useDispatch();
-  const count = useSelector((state: any) => state.counter.count)
+  // const dispatch = useDispatch();
+  // const count = useSelector((state: any) => state.counter.count)
   const popularNews = useSelector((state: any) => state.news.popularNews)
   const latestNews = useSelector((state: any) => state.news)
-  const {newsError, popularNewsError} = useSelector((state: any) => state?.errors || {})
+  // const {newsError, popularNewsError} = useSelector((state: any) => state?.errors || {})
 
   console.log('popularNews', popularNews)
   console.log('latestNews', latestNews)
@@ -34,6 +34,7 @@ const App = ({children}: AppType) => {
   //   console.log('handleNews')
   //   dispatch(getNews());
   // }
+  // let a = '';
 
   return <>
     {/*<div> {count} </div>*/}
