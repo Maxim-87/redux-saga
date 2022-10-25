@@ -1,10 +1,14 @@
-import { combineReducers } from "redux";
-import counterReducer from "./counter";
-import newsReducer from "./news";
-import errorsReducer from "./errors";
-import { connectRouter } from "connected-react-router";
-import {createBrowserHistory} from "history";
-import loaderReducer from "./loader";
+import { combineReducers } from 'redux';
+
+import { connectRouter } from 'connected-react-router';
+
+import {createBrowserHistory} from 'history';
+
+import counterReducer from './counter';
+import newsReducer from './news';
+import errorsReducer from './errors';
+
+import loaderReducer from './loader';
 
 export const history = createBrowserHistory();
 
@@ -14,6 +18,6 @@ const reducer = combineReducers({
   errors: errorsReducer,
   loader: loaderReducer,
   router: connectRouter(history),
-})
+});
 
 export default reducer;

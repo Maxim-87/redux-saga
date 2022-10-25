@@ -1,13 +1,14 @@
 import {takeEvery, takeLatest, takeLeading, select, call, put, fork, all, race, spawn,} from '@redux-saga/core/effects';
-import * as actionTypes from '../constats/index'
-import {getLatestNews, getPopularNews} from "../../api";
+
+import * as actionTypes from '../constats/index';
+import {getLatestNews, getPopularNews} from '../../api';
 import {
   setLatestNews,
   setLatestNewsError,
   setLoadingData,
   setPopularNews,
   setPopularNewsError
-} from "../actions/actionCreator";
+} from '../actions/actionCreator';
 
 // export function* workerSaga() {
 //   // @ts-ignore
@@ -17,35 +18,35 @@ import {
 
 export function* handleLatestNews() {
   try {
-    yield put(setLoadingData(true))
+    yield put(setLoadingData(true));
     const {hits} = yield call(getLatestNews, 'react');
     yield put(setLatestNews(hits));
-    yield put(setLoadingData(false))
+    yield put(setLoadingData(false));
   }
   catch{
-    yield put(setLatestNewsError('Error in handleLatestNews') )
+    yield put(setLatestNewsError('Error in handleLatestNews') );
   }
 }
 
 export function* handlePopularNews() {
   try {
-    yield put(setLoadingData(true))
+    yield put(setLoadingData(true));
     const {hits} = yield call(getPopularNews);
     yield put(setPopularNews(hits));
-    yield put(setLoadingData(false))
+    yield put(setLoadingData(false));
   }
- catch {
-   yield put(setPopularNewsError('Error in handlePopularNews') )
- }
+  catch {
+    yield put(setPopularNewsError('Error in handlePopularNews') );
+  }
 }
 
 // export function* handleNews() {
-  // yield call(handlePopularNews)
-  // yield call(handleLatestNews)
-  // yield all([
-  //   call(handlePopularNews),
-  //   call(handleLatestNews)
-  // ])
+// yield call(handlePopularNews)
+// yield call(handleLatestNews)
+// yield all([
+//   call(handlePopularNews),
+//   call(handleLatestNews)
+// ])
 //   yield fork(handlePopularNews)
 //   yield fork(handleLatestNews)
 // }
@@ -55,11 +56,11 @@ export function* handlePopularNews() {
 // }
 
 export function* watchClickLatestNewsSaga() {
-  yield takeLeading(actionTypes.GET_LATEST_NEWS, handleLatestNews)
+  yield takeLeading(actionTypes.GET_LATEST_NEWS, handleLatestNews);
 }
 
 export function* watchClickPopularNewsSaga() {
-  yield takeLeading(actionTypes.GET_POPULAR_NEWS, handlePopularNews)
+  yield takeLeading(actionTypes.GET_POPULAR_NEWS, handlePopularNews);
 }
 
 // export default function* rootSaga() {
